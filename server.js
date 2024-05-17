@@ -1,24 +1,17 @@
-// server.js
-
-// Importar dependencias
 const express = require('express');
 const mongoose = require('mongoose');
 const axios = require('axios');
 
-// Configurar variables
 const app = express();
 const PORT = process.env.PORT || 3000;
 const MONGODB_URI = 'mongodb+srv://William12:3219705394@cluster0.jtafcau.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'; // Reemplaza con tu URI de conexión a MongoDB
 
-// Middleware para parsear JSON
 app.use(express.json());
 
-// Conectar a MongoDB
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Conectado a MongoDB'))
   .catch(err => console.error('Error al conectar a MongoDB:', err));
 
-// Definir el esquema y el modelo de Mongoose
 const userSchema = new mongoose.Schema({
   apiId: { type: String, required: true },
   name: { type: String, required: true },
@@ -26,15 +19,13 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-// Ruta básica
 app.get('/', (req, res) => {
   res.send('Servidor Express funcionando correctamente');
 });
 
-// Endpoint para PokeAPI
 app.get('/api/pokemon', async (req, res) => {
   try {
-    const response = await axios.get('https://pokeapi.co/api/v2/pokemon/5'); // Consultar el Pokémon con ID 1
+    const response = await axios.get('https://pokeapi.co/api/v2/pokemon/5');
     const pokemon = response.data;
 
     const existingUser = await User.findOne({ apiId: pokemon.id.toString(), name: pokemon.name });
@@ -52,7 +43,6 @@ app.get('/api/pokemon', async (req, res) => {
   }
 });
 
-// Endpoint para The Rick and Morty API
 app.get('/api/rickandmorty', async (req, res) => {
   try {
     const response = await axios.get('https://rickandmortyapi.com/api/character/1'); // Consultar el personaje con ID 1
@@ -73,10 +63,9 @@ app.get('/api/rickandmorty', async (req, res) => {
   }
 });
 
-// Endpoint para The Star Wars API
 app.get('/api/starwars', async (req, res) => {
   try {
-    const response = await axios.get('https://swapi.dev/api/people/4/'); // Consultar el personaje con ID 1
+    const response = await axios.get('https://swapi.dev/api/people/4/');
     const person = response.data;
 
     const apiId = person.url.match(/\/(\d+)\/$/)[1];
@@ -95,7 +84,6 @@ app.get('/api/starwars', async (req, res) => {
   }
 });
 
-// Iniciar el servidor
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
