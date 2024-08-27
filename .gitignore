@@ -41,7 +41,6 @@ coverage/
 /.sass-cache/
 /connect.lock
 /coverage/
-/node_modules/
 /npm-debug.log
 /gruntfile.js
 /bower_components
