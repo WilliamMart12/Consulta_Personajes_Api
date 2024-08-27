@@ -1,0 +1,17 @@
+Consulta de Personajes Favoritos
+Descripción del Proyecto:
+Este proyecto es una aplicación web interactiva desarrollada con React que permite a los usuarios seleccionar y visualizar sus personajes favoritos de varias series populares, como Pokémon, Rick and Morty y Star Wars. Los usuarios pueden seleccionar personajes de una lista y ver detalles adicionales sobre los mismos. La aplicación también incluye una funcionalidad para restablecer la selección de personajes.
+
+Funcionalidades:
+
+-Selección de Personajes: Permite a los usuarios seleccionar personajes de diferentes series.
+-Visualización de Detalles: Muestra información detallada sobre los personajes seleccionados, incluyendo imágenes y descripciones.
+-Restablecimiento de Selección: Incluye una opción para restablecer y volver a seleccionar los personajes.
+
+Tecnologías Utilizadas:
+
+React: Biblioteca de JavaScript para construir interfaces de usuario.
+Express: Framework para Node.js utilizado para construir el backend del proyecto.
+Axios: Librería para realizar solicitudes HTTP y obtener datos de API externas.
+Framer Motion: Herramienta para añadir animaciones y mejorar la experiencia del usuario.
+CSS Modules: Utilizado para estilizar componentes de manera modular y mantener el código CSS organizado.
