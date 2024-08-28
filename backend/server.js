@@ -7,7 +7,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 // const MONGODB_URI = ''; //Colocar tu configuración para mongodb
 app.use(cors({
-  origin: 'https://consulta-personajes-api-84nh.onrender.com', // Cambia esto a la URL de tu frontend
+  origin: 'https://consulta-personajes-api-84nh.onrender.com', // URL de tu frontend
+  methods: 'GET,POST,PUT,DELETE', // Métodos HTTP permitidos
+  allowedHeaders: 'Content-Type,Authorization', // Encabezados permitidos
 }));
 
 app.use(express.json());
