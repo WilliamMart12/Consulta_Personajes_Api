@@ -1,6 +1,8 @@
+// frontend/src/api.js
+
 import axios from 'axios';
 
-const API_URL = '/api';
+const API_URL = 'https://consulta-personajes-api.onrender.com/api'; // URL de tu backend en Render
 
 export const getPokemon = async () => {
   return await axios.get(`${API_URL}/pokemon`);
