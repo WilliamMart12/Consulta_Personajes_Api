@@ -2,15 +2,13 @@ const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
 
-app.use(cors({
-    origin: 'https://consulta-personajes-api-84nh.onrender.com', // Cambia esto a la URL de tu frontend
-}));
-
 // const mongoose = require('mongoose'); // Comentar la importación de mongoose
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 // const MONGODB_URI = ''; //Colocar tu configuración para mongodb
+app.use(cors({
+  origin: 'https://consulta-personajes-api-84nh.onrender.com', // Cambia esto a la URL de tu frontend
+}));
 
 app.use(express.json());
 
